@@ -14,8 +14,14 @@ pipeline {
                 checkout scm: [
                     $class: 'GitSCM',
                     branches: [[name: "*/${env.GIT_BRANCH}"]],
+                    userRemoteConfigs: [[
                         url: "${env.GIT_REPO_URL}",
                         credentialsId: "${env.GIT_CREDENTIALS_ID}"
+                    ]]
+                ]
+            }
+        }
+
         stage('Setup Python Environment') {
             steps {
                 sh '''
@@ -68,9 +74,3 @@ pipeline {
         }
     }
 }
-                    ]]
-                ]
-            }
-        }
-
-
