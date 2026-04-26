@@ -28,7 +28,7 @@ driver = webdriver.Chrome(service=service, options=options)
 
 try:
     # Open the local file
-    driver.get("file://" + "/var/www/html/index.php")
+    driver.get("file://" + "/var/www/html/index.html")
 
     # Wait for the element to be visible
     WebDriverWait(driver, 10).until(
